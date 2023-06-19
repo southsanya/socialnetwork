@@ -8,6 +8,7 @@ import News from './components/News/News';
 import Music from  './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import {BrowserRouter, Routes , Route} from "react-router-dom";
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 
@@ -19,8 +20,8 @@ function App(props) {
       <Side />
       <div>
         <Routes>
-        <Route path='/dialogs/*' element={<Dialogs dispatch={props.dispatch} store={props.store} users={props.state.dialogs.users} messages={props.state.dialogs.messages} newMessagesText = {props.state.dialogs.newMessagesText} />} />
-        <Route path='/main/*' element={<Maincontent store={props.state}  postinfo={props.state.maincontent.postinfo} maininfo={props.state.maincontent.maininfo}  newPostText={props.state.maincontent.newPostText} dispatch={props.dispatch}/>} />
+        <Route path='/dialogs/*' element={<DialogsContainer dispatch={props.dispatch} store={props.store} users={props.state.dialogs.users} messages={props.state.dialogs.messages} newMessagesText = {props.state.dialogs.newMessagesText} />} />
+        <Route path='/main/*' element={<Maincontent store={props.store}  postinfo={props.state.maincontent.postinfo} maininfo={props.state.maincontent.maininfo}  newPostText={props.state.maincontent.newPostText} dispatch={props.dispatch}/>} />
         <Route path='/news/*' element={<News/>}/>
         <Route path='/music/*' element={<Music/>}/>
         <Route path='/settings/*' element={<Settings/>}/>
@@ -30,5 +31,4 @@ function App(props) {
     </BrowserRouter>
   );
 }
-
 export default App;

@@ -11,11 +11,11 @@ let postsData = props.postinfo.map ( data => <Post1 text={data.text} /> )
 let newPostElement = React.createRef()
 
 let addPost = () => {
-  props.dispatch( addPostActionCreator() )
+  props.addPost();
 }
 let onPostChange = () => {
   let text = newPostElement.current.value;
-  props.dispatch(updateNewPostActionCreator(text));
+  props.updateNewPostText(text);
 }
 
   return (

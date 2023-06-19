@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Maincontent.module.css'
-import MyPosts from './MyPosts/MyPosts';
+// import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/Posts/MyPostsContainer';
 
 function Maincontent(props) {
   return (
@@ -26,7 +27,7 @@ function Maincontent(props) {
                     </div>
                    </div>
                 </div>
-                <MyPosts postinfo={props.postinfo} newPostText={props.newPostText} dispatch={props.dispatch}/>
+                <MyPostsContainer store={props.store} dispatch={props.dispatch}/>
             </div>
         </div>
     </div>

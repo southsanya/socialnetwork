@@ -11,7 +11,7 @@ let newMessageElement = React.createRef();
 const Dialogs = (props) => {
 
     let messageSender = () => {
-        props.dispatch(addMessageActionCreator())
+        props.messageSender();
     }
  
    let usersData = props.users.map( user => <DialogItem name={user.username} id={user.id}/> )
@@ -19,8 +19,7 @@ const Dialogs = (props) => {
 
     let onMessageChange = (e) => {
         let newMessage = e.target.value;
-        console.log(newMessage)
-        props.dispatch( updateNewMessageTextContainer(newMessage));
+        props.onMessageChange(newMessage);
 
     }
     return (
