@@ -1,0 +1,42 @@
+.dialogscontainer {
+    background-color:#61dafb ;
+    grid-area: m;
+    margin: 1%;
+    width: 98%;
+    height: 98%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dialogs {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 50px 0;
+}
+.dialogsitems {
+    border-right: 2px solid #000;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+    align-items: center;
+}
+.item {
+    background-color: #fff;
+}
+.dialogsitems a.active {
+    background-color: #000;
+}
+.dialogsmessages {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+    align-items: center;
+
+
+}
+.message {
+
+}

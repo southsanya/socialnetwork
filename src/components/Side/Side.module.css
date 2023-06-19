@@ -1,0 +1,49 @@
+.aside__container {
+    grid-area: s;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-bg-color);
+    box-sizing: border-box;
+    padding: 1%;
+  }
+  .aside__button {
+    display: flex;
+    color: var(--main-bg-color);
+    background-color: aliceblue;
+    border-radius: 10px;
+    border: 1px solid var(--main-bg-color);
+    text-decoration: none;
+    font-weight: 600;
+    height: 50px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .active {
+    display: flex;
+    color: var(--main-bg-color);
+    background-color: rgba(38.0%, 85.5%, 98.4%, 0.9);
+    border-radius: 10px;
+    border: 1px solid var(--main-bg-color);
+    text-decoration: none;
+    font-weight: 600;
+    height: 50px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .aside__friend {
+    background-color: var(--main-bg-color);
+  }
+  .aside__ftext {
+  
+  }
+  .aside__friends {
+
+  }
+  .aside__unit {
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background-color: rgba(38.0%, 85.5%, 98.4%, 0.9) ;
+  }
