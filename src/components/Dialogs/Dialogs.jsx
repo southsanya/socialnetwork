@@ -14,8 +14,8 @@ const Dialogs = (props) => {
         props.messageSender();
     }
  
-   let usersData = props.users.map( user => <DialogItem name={user.username} id={user.id}/> )
-   let messagesData = props.messages.map( message => <Message content={message.content}/> )
+   let usersData = props.dialogs.users.map( user => <DialogItem name={user.username} id={user.id}/> )
+   let messagesData = props.dialogs.messages.map( message => <Message content={message.content}/> )
 
     let onMessageChange = (e) => {
         let newMessage = e.target.value;
@@ -32,7 +32,7 @@ const Dialogs = (props) => {
                {messagesData}
                <div>
                <div className={classes.main__pc_input}>
-                  <input ref={newMessageElement} className={classes.main__pc_inp} onChange={onMessageChange} value={props.newMessagesText}></input>
+                  <input ref={newMessageElement} className={classes.main__pc_inp} onChange={onMessageChange} value={props.dialogs.newMessagesText}></input>
                </div>
                <button onClick={ messageSender } className={classes.main__pc_but}>Send</button>
                </div>

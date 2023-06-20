@@ -7,7 +7,7 @@ import { addPostActionCreator, updateNewPostActionCreator } from '../../../Redux
 
 function MyPosts(props) {
 
-let postsData = props.postinfo.map ( data => <Post1 text={data.text} /> )
+let postsData = props.maincontent.postinfo.map ( data => <Post1 text={data.text} /> )
 let newPostElement = React.createRef()
 
 let addPost = () => {
