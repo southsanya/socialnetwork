@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { addPostActionCreator, updateNewPostActionCreator } from '../../../../Redux/maincontentReducer';
 import MyPosts from '../MyPosts';
-// import Post1 from './Posts/Post1/Post1';
-// import Post3 from './Posts/Post3/Post3';
-// import Post2 from './Posts/Post2/Post2';
+import StoreContext from '../../../../StoreContext';
 
 function MyPostsContainer(props) {
 
+  let context = useContext(StoreContext);
+
   let addPost = () => {
-    props.dispatch( addPostActionCreator() )
+    context.dispatch( addPostActionCreator() )
   }
   let onPostChange = (text) => {
     let action = updateNewPostActionCreator(text)
-    props.dispatch(action);
+    context.dispatch(action);
   }
 
   return (
     <MyPosts 
-    postinfo={props.store.maincontent.postinfo} 
+    postinfo={context.getState().maincontent.postinfo} 
     updateNewPostText={onPostChange} 
     addPost={addPost}
-    newPostText={props.store.maincontent.newPostText}
+    newPostText={context.getState().maincontent.newPostText}
     />             
   );
 }
