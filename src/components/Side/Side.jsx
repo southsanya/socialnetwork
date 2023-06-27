@@ -30,6 +30,11 @@ function Side() {
             Settings
         </NavLink>
         </div>
+        <div className={classes.aside__button}>
+        <NavLink to="/users" className={ navData => navData.isActive ? classes.active : classes.aside__button }>
+            Find Users
+        </NavLink>
+        </div>
         <div className={classes.aside__friend}>
             <div className={classes.aside__ftext}>Friends</div>
             <div className={classes.aside__friends}>

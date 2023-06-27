@@ -1,21 +1,20 @@
 import React from 'react';
 import classes from './MyPosts.module.css'
 import Post1 from './Posts/Post1/Post1';
-import Post3 from './Posts/Post3/Post3';
-import Post2 from './Posts/Post2/Post2';
-import { addPostActionCreator, updateNewPostActionCreator } from '../../../Redux/maincontentReducer';
 
 function MyPosts(props) {
 
-let postsData = props.maincontent.postinfo.map ( data => <Post1 text={data.text} /> )
+let postsData = props.maincontent.postinfo.map ( data => <Post1 id={data.id} key={data.id} text={data.text} /> )
 let newPostElement = React.createRef()
 
 let addPost = () => {
+  debugger;
   props.addPost();
 }
 let onPostChange = () => {
   let text = newPostElement.current.value;
-  props.updateNewPostText(text);
+  debugger;
+  props.onPostChange(text);
 }
 
   return (

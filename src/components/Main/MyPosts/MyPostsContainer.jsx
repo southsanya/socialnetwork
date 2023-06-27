@@ -12,12 +12,13 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
+  
   return {
     onPostChange: (text) => {
       let action = updateNewPostActionCreator(text);
       dispatch(action);
     },
-    addPost: () => {
+      addPost: () => {
       dispatch( addPostActionCreator() )
     }
   }

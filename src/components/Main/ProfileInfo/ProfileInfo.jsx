@@ -1,16 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import classes from './ProfileInfo.module.css'
-import StoreContext from '../../../StoreContext';
 
 function ProfileInfo() {
-
-    // let context = useContext(StoreContext);
-    // console.log(context.getState())
-
   return (
                 <div className={classes.main__pc_block}>
                     <div>
-                        <img src="https://cdn4.iconfinder.com/data/icons/avatars-21/512/avatar-circle-human-male-3-512.png"></img>
+                        <img src="https://cdn4.iconfinder.com/data/icons/avatars-21/512/avatar-circle-human-male-3-512.png" alt=''></img>
                     </div>
                    <div className={classes.main__pc_content}>
                    <div className={classes.main__pc_title}>

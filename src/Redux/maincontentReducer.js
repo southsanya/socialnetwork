@@ -22,22 +22,33 @@ let initialState = {
     }
   
 
-const maincontentReducer = ( state = initialState , action ) => {
+
     
+const maincontentReducer = ( state = initialState , action ) => {
+
+    
+
     switch(action.type) {
-        case _actionCreators.addpost : 
+      case _actionCreators.addpost : {
         let newPost = {
             id:'00005',
             text: state.newPostText
           }
-          state.postinfo.push(newPost);
-          state.newPostText = '';
-          return state;
-        case _actionCreators.updatepost :
-            state.newPostText = action.newText;
-            return state;
-        default : 
-            return state;
+          let stateCopy = {...state};
+          stateCopy.postinfo = [...state.postinfo];
+          stateCopy.postinfo.push(newPost);
+          stateCopy.newPostText = '';
+          return stateCopy; }
+        case _actionCreators.updatepost : {
+          let stateCopy = {...state};
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        }
+        default : {
+
+            let stateCopy = {...state};
+            return stateCopy;
+        }
     } }
 
     export let addPostActionCreator = () => {
