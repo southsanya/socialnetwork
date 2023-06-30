@@ -7,20 +7,16 @@ let _actionCreators = {
     updatemessage : 'UPDATE-NEW-MESSAGE-TEXT',
     follow: 'FOLLOW',
     unfollow: 'UNFOLLOW',
-    setuser: 'SET-USER'
+    setuser: 'SET-USER',
+    setcurrentpage: 'SET-CURRENT-PAGE',
+    settotalcount: 'SET-TOTAL-USERS-COUNT'
   }
 
 let initialState = {
-        users : [
-            
-            // { id: 0, follow: false, fullname: 'Alex G', avimage: 'https://cdn-icons-png.flaticon.com/512/149/149071.png', status: 'I`m a boss', location: { city: 'Kyiv' , country: 'Ukraine' } },
-            // { id: 1, follow: true, fullname: 'Alex G', avimage: 'https://cdn-icons-png.flaticon.com/512/149/149071.png', status: 'I`m a boss', location: { city: 'Kyiv' , country: 'Ukraine' } },
-            // { id: 2, follow: false, fullname: 'Alex G', avimage: 'https://cdn-icons-png.flaticon.com/512/149/149071.png', status: 'I`m a boss', location: { city: 'Kyiv' , country: 'Ukraine' } },
-            // { id: 3, follow: false, fullname: 'Alex G', avimage: 'https://cdn-icons-png.flaticon.com/512/149/149071.png', status: 'I`m a boss', location: { city: 'Kyiv' , country: 'Ukraine' } }
-
-            
-    
-        ]
+        users : [],
+        pageSize: 5,
+        totalUsersCount: 0,
+        currentPage: 1
     }
   
 
@@ -56,7 +52,19 @@ const userReducer = ( state = initialState , action ) => {
         case _actionCreators.setuser : {
             return {
                 ...state,
-                users: [ ...state.users , ...action.users ]
+                users:  action.users 
+            }
+        }
+        case _actionCreators.setcurrentpage : {
+            return {
+                ...state,
+                currentPage: action.currentPage
+            }
+        }
+        case _actionCreators.settotalcount : {
+            return {
+                ...state,
+                totalUsersCount: action.count
             }
         }
         default : {
@@ -80,6 +88,18 @@ const userReducer = ( state = initialState , action ) => {
         return {
           type : _actionCreators.setuser,
           users
+        }
+      }
+      export let setCurrentPageAC = (currentPage) => {
+        return {
+            type : _actionCreators.setcurrentpage,
+            currentPage
+        }
+      }
+      export let setUserTotalCountAC = (totalUsersCount) => {
+        return {
+            type : _actionCreators.settotalcount,
+            count: totalUsersCount
         }
       }
 

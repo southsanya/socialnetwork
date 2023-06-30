@@ -8,15 +8,22 @@ class Users extends React.Component {
 constructor (props) {
     super (props);
 
-    alert ('NEW')
+    // alert ('NEW')
 
     // if (this.props.users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then( Response => {
-            this.props.setusers(Response.data.items);
-        } )
+        // axios.get('https://social-network.samuraijs.com/api/1.0/users').then( Response => {
+        //     this.props.setusers(Response.data.items);
+        // } )
         
     // }
 }
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then( Response => {
+            this.props.setusers(Response.data.items);
+            this.props.settotalusercount(Response.data.totalCount);
+
+        } )
+    }
 
     // getUsers = () => {
     //     if (this.props.users.length === 0) {
@@ -26,17 +33,32 @@ constructor (props) {
             
     //     }
     //    }
-
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then( Response => {
+            this.props.setusers(Response.data.items);        } )
+    }
     render() {
+        console.log(this.props.totalUsersCount, this.props.pageSize)
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+        let pages = [];
+        for(let i=1; i<=pagesCount; i++) {
+            pages.push(i)
+        }
+        console.dir(pages)
+
         return (
-        
+
             <div>
+                <div>
+                {pages.map(p => { return <span onClick={(e) => {this.onPageChanged(p)}} className={this.props.currentPage === p && classes.selectedPage}>{p}</span>})}
+                </div>
                 {/* <button onClick={() => this.getUsers()}>Get Users</button> */}
             {this.props.users.map( u =>
                  <div className={classes.userscontainer} key={u.id}>
                     <div className={classes.lefthandler}>
                         <div className={classes.avimagecontainer}>
-                            <img className={classes.avimage} src={ u.photos.small != null ? u.photos.small : userPhoto  } alt='#'/>
+                            <img className={classes.avimage} src='' alt='#'/>
                         </div>
                         <div className={classes.followbtncontainer}>
                             {u.follow
