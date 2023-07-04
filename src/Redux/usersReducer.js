@@ -9,14 +9,16 @@ let _actionCreators = {
     unfollow: 'UNFOLLOW',
     setuser: 'SET-USER',
     setcurrentpage: 'SET-CURRENT-PAGE',
-    settotalcount: 'SET-TOTAL-USERS-COUNT'
+    settotalcount: 'SET-TOTAL-USERS-COUNT',
+    toggleisfetching: 'TOGGLE-IS-FETCHING'
   }
 
 let initialState = {
         users : [],
-        pageSize: 5,
+        pageSize: 20,
         totalUsersCount: 0,
-        currentPage: 1
+        currentPage: 1,
+        isFetching: false
     }
   
 
@@ -67,39 +69,51 @@ const userReducer = ( state = initialState , action ) => {
                 totalUsersCount: action.count
             }
         }
+        case _actionCreators.toggleisfetching : {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
         default : {
             return state;
         }
     } }
 
-    export let followAC = (userId) => {
+    export let follow = (userId) => {
         return {
           type : _actionCreators.follow,
           userId
         }
       }
-    export let unfollowAC = (userId) => {
+    export let unfollow = (userId) => {
         return {
           type : _actionCreators.unfollow,
           userId
         }
       }
-      export let setUserAC = (users) => {
+      export let setUser = (users) => {
         return {
           type : _actionCreators.setuser,
           users
         }
       }
-      export let setCurrentPageAC = (currentPage) => {
+      export let setCurrentPage = (currentPage) => {
         return {
             type : _actionCreators.setcurrentpage,
             currentPage
         }
       }
-      export let setUserTotalCountAC = (totalUsersCount) => {
+      export let setUserTotalCount = (totalUsersCount) => {
         return {
             type : _actionCreators.settotalcount,
             count: totalUsersCount
+        }
+      }
+      export let toggleIsFething = (isFetching) => {
+        return {
+            type : _actionCreators.toggleisfetching,
+            isFetching
         }
       }
 

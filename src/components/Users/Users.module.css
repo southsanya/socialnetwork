@@ -2,3 +2,39 @@
     font-weight: 700;
     color: red
 }
+.usersWrapper {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.userscontainer {
+    width: 250px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.lefthandler {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: none;
+}
+.avimage {
+    width: 100px;
+    border-radius: 50%;
+}
+.followbtn {
+    width: 100px;
+
+}
+.righthandler {
+    width: 60%;
+}
