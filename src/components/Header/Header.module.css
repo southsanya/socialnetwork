@@ -30,3 +30,11 @@
     background-color: var(--main-bg-color);
     border: 1px solid aliceblue;
   }
+  .header__button {
+    border: 1px solid lightblue;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: lightblue;
+    border-radius: 5px;
+  }

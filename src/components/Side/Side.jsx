@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Side.module.css';
 import {NavLink} from 'react-router-dom';
-
+// import axios from 'axios';
 function Side() {
   return (
     <aside className={classes.aside__container}>
@@ -32,17 +32,10 @@ function Side() {
         </div>
         <div className={classes.aside__button}>
         <NavLink to="/users" className={ navData => navData.isActive ? classes.active : classes.aside__button }>
-            Find Users
+            Find 
         </NavLink>
         </div>
-        <div className={classes.aside__friend}>
-            <div className={classes.aside__ftext}>Friends</div>
-            <div className={classes.aside__friends}>
-                <div className={classes.aside__unit}></div>
-                <div className={classes.aside__unit}></div>
-                <div className={classes.aside__unit}></div>
-            </div>
-        </div>
+        
     </aside>
   );
 }

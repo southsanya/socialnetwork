@@ -2,14 +2,25 @@
     font-weight: 700;
     color: red
 }
-.usersWrapper {
-    width: 500px;
+.userswrapper {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
+    position: relative;
+    z-index: 2;
 }
 .userscontainer {
-    width: 250px;
-    border: 1px solid #000;
+    width: 300px;
+    border: 1px solid #385898;
     box-sizing: border-box;
     border-radius: 10px;
     display: flex;
@@ -18,6 +29,9 @@
     gap: 10px;
     justify-content: center;
     padding: 10px;
+    /* color: #385898; */
+    background-color: #385898;
+
 }
 
 .lefthandler {
@@ -38,3 +52,38 @@
 .righthandler {
     width: 60%;
 }
+.prewBtn , .followbtn {
+    display: inline-block; 
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin: 0 15px 15px 0;
+    outline: none;
+    border: none; 
+    border-radius: 6px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #385898;
+    background-color: #e7f3ff;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+}
+.prewBtn:focus-visible {
+    box-shadow: 0 0 0 2px #666;
+}
+.prewBtn:hover {
+    background-color: #DBE7F2;
+}
+.prewBtn:active {
+    transform: scale(0.96);
+}
+.prewBtn:disabled {
+    background-color: #fff;
+    pointer-events: none;
+    opacity: 0.65;
+}
+

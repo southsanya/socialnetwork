@@ -1,7 +1,13 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css'
+import Preloader from '../../common/preloader/preloader';
 
-function ProfileInfo() {
+function ProfileInfo(props) {
+
+    if (!props.profile) {
+        return <Preloader/>
+    }
+    
   return (
                 <div className={classes.main__pc_block}>
                     <div>
@@ -9,13 +15,14 @@ function ProfileInfo() {
                     </div>
                    <div className={classes.main__pc_content}>
                    <div className={classes.main__pc_title}>
-                        <div>Alex Shestakov</div>
+                        <div>{props.profile.fullName}</div>
                     </div>
                     <div className={classes.main__pc_subtitle}>
                         <div className={classes.main__pc_date}>8 march</div>
                         <div className={classes.main__pc_city}>Kyiv</div>
                         <div className={classes.main__pc_edu}>KSAEU '24</div>
                         <div className={classes.main__pc_site}>southsanya.com</div>
+                        <div>{props.profile.aboutMe}</div>
                     </div>
                    </div>
                 </div>
