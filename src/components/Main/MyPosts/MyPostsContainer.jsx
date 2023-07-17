@@ -1,7 +1,5 @@
-// import React, { useContext } from 'react';
-import { addPostActionCreator, updateNewPostActionCreator } from '../../../Redux/maincontentReducer';
+import { addPostActionCreator } from '../../../Redux/maincontentReducer';
 import MyPosts from './MyPosts';
-// import StoreContext from '../../../StoreContext';
 import { connect } from 'react-redux';
 
 
@@ -12,14 +10,9 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-  
   return {
-    onPostChange: (text) => {
-      let action = updateNewPostActionCreator(text);
-      dispatch(action);
-    },
-      addPost: () => {
-      dispatch( addPostActionCreator() )
+      addPost: (newPost) => {
+      dispatch( addPostActionCreator(newPost) )
     }
   }
 }

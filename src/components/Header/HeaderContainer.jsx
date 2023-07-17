@@ -4,8 +4,9 @@ import React from 'react';
 import Header from './Header';
 // import axios from 'axios';
 import { connect } from 'react-redux';
-import { getAuthThunkCreator } from '../../Redux/authReducer';
+import { getAuthThunkCreator, logoutThunkCreator} from '../../Redux/authReducer';
 // import { headerAPI } from '../../api/api';
+import { headerSelectors } from '../../Redux/selectors';
 
 
 class HeaderContainer extends React.Component {
@@ -31,7 +32,7 @@ class HeaderContainer extends React.Component {
 
 }
 const mapStateToProps = (state) => ({
-  isAuth: state.auth.isAuth,
-  login: state.auth.login
+  isAuth: headerSelectors.getIsAuth,
+  login: headerSelectors.getLogin
 })
-export default connect (mapStateToProps, {getAuthThunkCreator}) (HeaderContainer);
+export default connect (mapStateToProps, {getAuthThunkCreator , logoutThunkCreator}) (HeaderContainer);

@@ -5,7 +5,8 @@ let _actionCreators = {
   updatepost: 'UPDATE-NEW-POST-TEXT',
   addmessage: 'ADD-MESSAGE',
   updatemessage: 'UPDATE-NEW-MESSAGE-TEXT',
-  setuserprofile: 'SET-USER-PROFILE'
+  setuserprofile: 'SET-USER-PROFILE',
+  setstatus: 'SET-STATUS'
 
 }
 
@@ -21,7 +22,8 @@ let initialState = {
     bcimage: 'https://hips.hearstapps.com/hmg-prod/images/champagne-beach-espiritu-santo-island-vanuatu-royalty-free-image-1655672510.jpg?crop=1.00xw:0.755xh;0,0.173xh&resize=1200:*',
     avimage: 'https://cdn4.iconfinder.com/data/icons/avatars-21/512/avatar-circle-human-male-3-512.png'
   },
-  profile: null
+  profile: null,
+  status: ''
 }
 
 
@@ -35,12 +37,11 @@ const maincontentReducer = (state = initialState, action) => {
     case _actionCreators.addpost: {
       let newPost = {
         id: '00005',
-        text: state.newPostText
+        text: action.newPost
       }
       let stateCopy = { ...state };
       stateCopy.postinfo = [...state.postinfo];
       stateCopy.postinfo.push(newPost);
-      stateCopy.newPostText = '';
       return stateCopy;
     }
     case _actionCreators.updatepost: {
@@ -54,6 +55,12 @@ const maincontentReducer = (state = initialState, action) => {
         profile: action.profile
       }
     }
+    case _actionCreators.setstatus: {
+      return {
+        ...state,
+        status: action.status
+      }
+    }
     default: {
 
       let stateCopy = { ...state };
@@ -62,9 +69,10 @@ const maincontentReducer = (state = initialState, action) => {
   }
 }
 
-export let addPostActionCreator = () => {
+export let addPostActionCreator = (newPost) => {
   return {
-    type: _actionCreators.addpost
+    type: _actionCreators.addpost,
+    newPost
   }
 }
 export let updateNewPostActionCreator = (text) => {
@@ -79,16 +87,37 @@ export let setUserProfile = (profile) => {
     profile
   }
 }
+export let setStatus = (status) => {
+  return {
+    type: _actionCreators.setstatus,
+    status
+  }
+}
 export const GetMainThunkCreator = (userId) => {
   return (dispatch) => {
     mainAPI.getMain(userId)
       .then(Response => {
-        debugger;
         dispatch(setUserProfile(Response.data));
-
       })
   }
-
+}
+export const GetStatusThunkCreator = (userId) => {
+  return (dispatch) => {
+    mainAPI.getStatus(userId)
+      .then(Response => {
+        dispatch(setStatus(Response.data));
+      })
+  }
+}
+export const UpdateStatusThunkCreator = (status) => {
+  return (dispatch) => {
+    mainAPI.updateStatus(status)
+      .then(Response => {
+        if(Response.data.resultCode === 0) {
+          dispatch(setStatus(status))
+        }
+      })
+  }
 }
 
 export default maincontentReducer;

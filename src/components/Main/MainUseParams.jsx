@@ -8,7 +8,6 @@ import MaincontentContainer from "./MaincontentContainer";
 
 function MainUseParams() {
   let param = useParams();
-  console.log(param['*'])
 
   return (
     <MaincontentContainer param={param}/>

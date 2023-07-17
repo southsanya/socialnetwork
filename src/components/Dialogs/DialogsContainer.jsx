@@ -1,27 +1,29 @@
-import { addMessageActionCreator, updateNewMessageTextContainer } from '../../Redux/dialogsReducer';
+import { addMessageActionCreator } from '../../Redux/dialogsReducer';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
+import { withAuthRedirect } from '../../HOC/WithAuthRedirect';
+import { compose } from 'redux';
 
 
 
 let mapStateToProps = (state) => {
     return {
         dialogs: state.dialogs,
-        isAuth: state.auth.isAuth
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        messageSender: () => {
-            dispatch(addMessageActionCreator())
-        },
-        onMessageChange: (newMessage) => {
-            dispatch(updateNewMessageTextContainer(newMessage))
+        messageSender: (newMessageBody) => {
+            dispatch(addMessageActionCreator(newMessageBody))
         }
     }
 }
 
-const SuperDialogsContainer = connect( mapStateToProps , mapDispatchToProps ) (Dialogs);
 
-export default SuperDialogsContainer;
+
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs);

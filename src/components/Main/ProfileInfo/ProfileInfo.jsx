@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css'
 import Preloader from '../../common/preloader/preloader';
+import ProfileStatus from './ProfileStatus'
 
 function ProfileInfo(props) {
 
@@ -23,6 +24,7 @@ function ProfileInfo(props) {
                         <div className={classes.main__pc_edu}>KSAEU '24</div>
                         <div className={classes.main__pc_site}>southsanya.com</div>
                         <div>{props.profile.aboutMe}</div>
+                        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                     </div>
                    </div>
                 </div>

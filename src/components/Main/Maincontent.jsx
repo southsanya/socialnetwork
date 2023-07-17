@@ -22,7 +22,7 @@ function Maincontent(props) {
                 <img className={classes.main__bc_img} alt=''></img>
             </div>
             <div className={classes.main__profilecard}>
-                <ProfileInfo profile={props.profile}/>
+                <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
                 <MyPostsContainer />
             </div>
         </div>

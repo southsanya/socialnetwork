@@ -1,47 +1,48 @@
-// import { NavLink } from 'react-router-dom';
 import classes from './Dialogs.module.css';
-// import react from 'react';
 import Message from './Message/Message';
 import DialogItem from './DialogsInfo/DialogsInfo';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-// import { addMessageActionCreator, updateNewMessageTextContainer } from '../../Redux/dialogsReducer';
+import { Field , reduxForm } from "redux-form";
+import { Textarea } from '../common/formsControls/formsControls';
+import { maxLengthCreator, required } from '../../utils/validators/validators';
 
+const maxLength50 = maxLengthCreator(50);
 
-let newMessageElement = React.createRef();
+const AddMessageForm = (props) => {
+    return <form onSubmit={props.handleSubmit}>
+        <Field component={Textarea} name={'newMessageBody'}className={classes.main__pc_inp} validate={[required , maxLength50]}/>
+        <button  className={classes.main__pc_but}>Send</button>
+    </form>
+}
+
+const AddMessageReduxForm = reduxForm({
+    form: 'dialogAddMessageForm'
+}) (AddMessageForm)
+
 const Dialogs = (props) => {
 
-    let messageSender = () => {
-        props.messageSender();
-    }
- 
-   let usersData = props.dialogs.users.map( user => <DialogItem name={user.username} id={user.id}/> )
-   let messagesData = props.dialogs.messages.map( message => <Message content={message.content}/> )
+    let usersData = props.dialogs.users.map(user => <DialogItem name={user.username} id={user.id} />)
+    let messagesData = props.dialogs.messages.map(message => <Message content={message.content} />)
 
-    let onMessageChange = (e) => {
-        let newMessage = e.target.value;
-        props.onMessageChange(newMessage);
-
+    const onSubmit = (formData) => {
+        console.log(formData)
+        props.messageSender(formData.newMessageBody);
     }
 
-    if(props.isAuth === false) return <Navigate to={'/login'}/>
+    if (props.isAuth === false) return <Navigate to={'/login'} />
 
     return (
         <div className={classes.dialogscontainer}>
-         <div className={classes.dialogs}>
-           <div className={classes.dialogsitems}>
-               {usersData}
-           </div>
-           <div className={classes.dialogsmessages}>
-               {messagesData}
-               <div>
-               <div className={classes.main__pc_input}>
-                  <input ref={newMessageElement} className={classes.main__pc_inp} onChange={onMessageChange} value={props.dialogs.newMessagesText}></input>
-               </div>
-               <button onClick={ messageSender } className={classes.main__pc_but}>Send</button>
-               </div>
-           </div>
-         </div>
+            <div className={classes.dialogs}>
+                <div className={classes.dialogsitems}>
+                    {usersData}
+                </div>
+                <div className={classes.dialogsmessages}>
+                    {messagesData}
+                    <AddMessageReduxForm onSubmit={onSubmit}/>
+                </div>
+            </div>
         </div>
     )
 }
