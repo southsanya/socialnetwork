@@ -1,15 +1,17 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css'
 import Preloader from '../../common/preloader/preloader';
-import ProfileStatus from './ProfileStatus'
+// import ProfileStatus from './ProfileStatus'
+import { ProfileStatusWithHooks } from './ProfileStatusWithHooks';
 
-function ProfileInfo(props) {
+const ProfileInfo = React.memo(props => {
 
     if (!props.profile) {
         return <Preloader/>
     }
-    
+    console.log('ProfileInfo Render')
   return (
+
                 <div className={classes.main__pc_block}>
                     <div>
                         <img src="https://cdn4.iconfinder.com/data/icons/avatars-21/512/avatar-circle-human-male-3-512.png" alt=''></img>
@@ -24,11 +26,11 @@ function ProfileInfo(props) {
                         <div className={classes.main__pc_edu}>KSAEU '24</div>
                         <div className={classes.main__pc_site}>southsanya.com</div>
                         <div>{props.profile.aboutMe}</div>
-                        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
                     </div>
                    </div>
                 </div>
   );
-}
+})
 
 export default ProfileInfo;

@@ -1,12 +1,13 @@
 import { mainAPI } from "../api/api"
 
 let _actionCreators = {
-  addpost: 'ADD-POST',
-  updatepost: 'UPDATE-NEW-POST-TEXT',
-  addmessage: 'ADD-MESSAGE',
-  updatemessage: 'UPDATE-NEW-MESSAGE-TEXT',
-  setuserprofile: 'SET-USER-PROFILE',
-  setstatus: 'SET-STATUS'
+  addpost: 'main/ADD-POST',
+  updatepost: 'main/UPDATE-NEW-POST-TEXT',
+  addmessage: 'main/ADD-MESSAGE',
+  updatemessage: 'main/UPDATE-NEW-MESSAGE-TEXT',
+  setuserprofile: 'main/SET-USER-PROFILE',
+  setstatus: 'main/SET-STATUS',
+  deletepost: 'main/DELETE-POST'
 
 }
 
@@ -93,31 +94,24 @@ export let setStatus = (status) => {
     status
   }
 }
-export const GetMainThunkCreator = (userId) => {
-  return (dispatch) => {
-    mainAPI.getMain(userId)
-      .then(Response => {
-        dispatch(setUserProfile(Response.data));
-      })
+export let deletePost = (status) => {
+  return {
+    type: _actionCreators.deletepost,
+    status
   }
 }
-export const GetStatusThunkCreator = (userId) => {
-  return (dispatch) => {
-    mainAPI.getStatus(userId)
-      .then(Response => {
-        dispatch(setStatus(Response.data));
-      })
-  }
+export const GetMainThunkCreator = (userId) => async (dispatch) => {
+  let Response = await mainAPI.getMain(userId)
+  dispatch(setUserProfile(Response.data));
 }
-export const UpdateStatusThunkCreator = (status) => {
-  return (dispatch) => {
-    mainAPI.updateStatus(status)
-      .then(Response => {
-        if(Response.data.resultCode === 0) {
-          dispatch(setStatus(status))
-        }
-      })
-  }
+export const GetStatusThunkCreator = (userId) => async (dispatch) => {
+  let Response = await mainAPI.getStatus(userId);
+  dispatch(setStatus(Response.data));
+}
+export const UpdateStatusThunkCreator = (status) => async (dispatch) => {
+  let Response = await mainAPI.updateStatus(status);
+  if (Response.data.resultCode === 0) {
+    dispatch(setStatus(status))}
 }
 
 export default maincontentReducer;
