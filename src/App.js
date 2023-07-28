@@ -3,7 +3,7 @@ import Side from './components/Side/Side';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import MainUseParams from './components/Main/MainUseParams';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/login';
@@ -20,7 +20,7 @@ const UsersContainer = React.lazy(() => import('./components/Users/UsersContaine
 
 function App(props) {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <div className="app-wrapper">
         <HeaderContainer />
         <Side />
@@ -43,7 +43,7 @@ function App(props) {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 export default App;
