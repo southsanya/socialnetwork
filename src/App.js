@@ -20,7 +20,7 @@ const UsersContainer = React.lazy(() => import('./components/Users/UsersContaine
 
 function App(props) {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="app-wrapper">
         <HeaderContainer />
         <Side />
@@ -43,7 +43,7 @@ function App(props) {
           </Routes>
         </div>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 export default App;
