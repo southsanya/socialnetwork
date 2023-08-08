@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <App isAuth={store.getState().auth.isAuth}/>
     </Provider>
   </React.StrictMode>
 )

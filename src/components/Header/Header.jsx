@@ -8,7 +8,7 @@ function Header(props) {
       <img src="https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png" alt='logo' className={classes.header__image_logo}></img>
       <div className={classes.header__button_container}>
         { props.isAuth
-        ? <div>{props.login} - <button onClick={() => (props.logoutThunkCreator())}>Log Out</button></div>
+        ? <div><button onClick={() => (props.logoutThunkCreator())}>Log Out</button></div>
         : <NavLink to={'/login'} className={classes.header__button}>Login</NavLink>
         }
       </div>

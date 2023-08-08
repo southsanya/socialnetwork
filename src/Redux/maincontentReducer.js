@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form"
 import { mainAPI } from "../api/api"
 
 let _actionCreators = {
@@ -7,7 +8,9 @@ let _actionCreators = {
   updatemessage: 'main/UPDATE-NEW-MESSAGE-TEXT',
   setuserprofile: 'main/SET-USER-PROFILE',
   setstatus: 'main/SET-STATUS',
-  deletepost: 'main/DELETE-POST'
+  deletepost: 'main/DELETE-POST',
+  savephoto: 'main/SAVE-PHOTO',
+  saveinfo: 'main/SAVE-INFO'
 
 }
 
@@ -62,6 +65,28 @@ const maincontentReducer = (state = initialState, action) => {
         status: action.status
       }
     }
+    case _actionCreators.savephoto: {
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          photos: action.photo
+        }
+      }
+    }
+    case _actionCreators.saveinfo: {
+      return {
+        ...state,
+        profile: {
+          AboutMe: action.AboutMe,
+          contacts: {...action.contacts},
+          fullName: action.fullName,
+          lookingForAJob: action.lookingForAJob,
+          lookingForAJobDescription: action.lookingForAJobDescription,
+        }
+
+      }
+    }
     default: {
 
       let stateCopy = { ...state };
@@ -100,6 +125,18 @@ export let deletePost = (status) => {
     status
   }
 }
+export let savePhotoSuccess = (photo) => {
+  return {
+    type: _actionCreators.savephoto,
+    photo
+  }
+}
+export let saveInfoSuccess = (file) => {
+  return {
+    type: _actionCreators.saveinfo,
+    file
+  }
+}
 export const GetMainThunkCreator = (userId) => async (dispatch) => {
   let Response = await mainAPI.getMain(userId)
   dispatch(setUserProfile(Response.data));
@@ -111,7 +148,28 @@ export const GetStatusThunkCreator = (userId) => async (dispatch) => {
 export const UpdateStatusThunkCreator = (status) => async (dispatch) => {
   let Response = await mainAPI.updateStatus(status);
   if (Response.data.resultCode === 0) {
-    dispatch(setStatus(status))}
+    dispatch(setStatus(status))
+  }
+}
+export const SavePhotoThunkCreator = (file) => async (dispatch) => {
+  //console.log('savePhoto thunk on')
+  let Response = await mainAPI.savePhoto(file);
+  //console.log(Response.data.resultCode)
+  if (Response.data.resultCode === 0) {
+    //console.log(Response.data.photos)
+    dispatch(savePhotoSuccess(file))
+  }
+}
+
+export const SaveProfileInfoThunkCreator = (file) => async (dispatch, getState) => {
+  let Response = await mainAPI.saveInfo(file);
+  if (Response.data.resultCode === 0) {
+    // dispatch(saveInfoSuccess(file))
+    dispatch(GetMainThunkCreator(getState().auth.userId))
+  }
+  else {
+    dispatch(stopSubmit('profile', {_error: Response.data.messages[0]}))
+  }
 }
 
 export default maincontentReducer;

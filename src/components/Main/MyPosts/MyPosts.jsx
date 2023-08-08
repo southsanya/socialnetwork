@@ -8,7 +8,7 @@ import { Textarea } from '../../common/formsControls/formsControls';
 const maxLength10 = maxLengthCreator(10);
 
 const MyPostsForm = (props) => {
-  return <form onSubmit={props.handleSubmit}>
+  return <form onSubmit={props.handleSubmit} className={classes.inputContainer}>
     <div className={classes.main__pc_input}>
       <Field component={Textarea} className={classes.main__pc_inp} name={'newPost'} placeholder='post' validate={[required , maxLength10]} />
     </div>

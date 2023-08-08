@@ -30,6 +30,18 @@ export const mainAPI = {
     },
     updateStatus: (status) => {
         return instance.put(`profile/status/`, {status: status})
+    },
+    savePhoto: (file) => {
+        let formData = new FormData();
+        formData.append('image', file)
+        return instance.put('profile/photo', formData, {
+            headers: {
+                'Content-Type' : 'multipart/form-data'
+            }
+        } )
+    },
+    saveInfo: (profile) => {
+        return instance.put('profile/', profile )
     }
 }
 
@@ -42,5 +54,11 @@ export const headerAPI = {
     },
     getLogOut: () => {
         return instance.delete(`auth/login`)
+    }
+}
+
+export const secureAPI = {
+    getCaptcha: () => {
+        return instance.get('security/get-captcha-url')
     }
 }

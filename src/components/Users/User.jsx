@@ -11,7 +11,7 @@ let User = ({ user, currentPage, onFollowChanged, onFollow, onUnfollow, followin
                 <div className={classes.avimagecontainer}>
 
                     <NavLink to={'/main/' + user.id}>
-                        <img className={classes.avimage} src={user.photos.small != null ? user.photos.small : userPhoto} alt='#' />
+                        <img className={classes.avimage} src={user.photos.large || userPhoto} alt='#' />
                     </NavLink>
 
                 </div>
@@ -41,8 +41,8 @@ let User = ({ user, currentPage, onFollowChanged, onFollow, onUnfollow, followin
                     <div className={classes.status}>{user.status}</div>
                 </div>
                 <div className={classes.blockright}>
-                    <div className={classes.city}>Kyiv</div>
-                    <div className={classes.country}>Ua</div>
+                    {/* <div className={classes.city}>Kyiv</div>
+                    <div className={classes.country}>Ua</div> */}
                 </div>
             </div>
         </div>

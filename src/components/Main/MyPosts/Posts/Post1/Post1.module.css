@@ -96,7 +96,6 @@
     margin: 30px 0 0 0;
     width: 100%;
     height: auto;
-    background-color:rgba(38.0%, 85.5%, 98.4%, 0.9);
     border-radius: 10px;
     box-sizing: border-box;
     padding: 10px 30px;
@@ -122,6 +121,6 @@
     border-radius: 50%;
   }
   .main__pc_post_text {
-    color: aliceblue;
+    color: black;
     font-size: 22px;
   }

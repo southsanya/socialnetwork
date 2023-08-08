@@ -1,11 +1,16 @@
 .header__container {
+  width: 100%;
     grid-area:h;
-    width: 100%;
     background-color: var(--main-bg-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+ @media (max-width: 1400px) {
+  .header__container {
+  }
+  
+ }
   .header__image_logo {
     width: 50px;
     height: 50px;
@@ -15,26 +20,28 @@
     margin: 5px;
     display: flex;
     gap: 10px;
+    box-sizing: border-box;
+    max-width: 100vh;
   }
   .header__button_container button {
     width: 100px;
     height: 50px;
-    background-color: aliceblue;
+    background-color: #EADBC8;
     color: var(--main-bg-color);
-    border: 1px solid var(--main-bg-color);
+    border: none;
     border-radius: 5px;
     font-weight: 600;
   }
   .header__button_container .button__last {
     color: aliceblue;
-    background-color: var(--main-bg-color);
+    background-color: #EADBC8;
     border: 1px solid aliceblue;
   }
   .header__button {
-    border: 1px solid lightblue;
+    border: 1px solid #EADBC8;
     padding: 10px;
     color: white;
     text-decoration: none;
-    background-color: lightblue;
+    background-color: #EADBC8;
     border-radius: 5px;
   }

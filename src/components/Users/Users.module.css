@@ -9,6 +9,9 @@
     align-items: center;
     justify-content: center;
 }
+.buttons {
+    margin-top: 20px;
+}
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -20,7 +23,7 @@
 }
 .userscontainer {
     width: 300px;
-    border: 1px solid #385898;
+    border: none;
     box-sizing: border-box;
     border-radius: 10px;
     display: flex;
@@ -30,7 +33,7 @@
     justify-content: center;
     padding: 10px;
     /* color: #385898; */
-    background-color: #385898;
+    background-color: #EADBC8;
 
 }
 
@@ -55,6 +58,7 @@
 .prewBtn , .followbtn {
     display: inline-block; 
     box-sizing: border-box;
+    max-width: 300px;
     padding: 0 20px;
     margin: 0 15px 15px 0;
     outline: none;
@@ -65,8 +69,8 @@
     font-size: 17px;
     font-weight: 600;
     text-decoration: none;
-    color: #385898;
-    background-color: #e7f3ff;
+    color: #EADBC8;
+    background-color: #F8F0E5;
     cursor: pointer;
     user-select: none;
     appearance: none;
@@ -85,5 +89,9 @@
     background-color: #fff;
     pointer-events: none;
     opacity: 0.65;
+}
+.fullname {
+    font-weight: 600;
+    font-size: 15px;
 }
 

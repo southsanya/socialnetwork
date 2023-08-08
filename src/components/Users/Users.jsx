@@ -10,7 +10,7 @@ let Users = ({ isFetching, onPageChanged, currentPage, users, onFollowChanged, o
         <div className={classes.wrapper}>
             <div>{isFetching ? <Preloader className={classes.preloader} /> : null}</div>
             <div>
-                <div>
+                <div className={classes.buttons}>
                     <button className={classes.prewBtn} onClick={() => { onPageChanged(currentPage - 1) }}>Prew</button>
                     <button className={classes.prewBtn} onClick={() => { onPageChanged(currentPage + 1) }}>Next</button>
                 </div>

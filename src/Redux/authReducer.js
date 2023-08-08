@@ -1,16 +1,18 @@
 import { stopSubmit } from "redux-form";
-import { headerAPI } from "../api/api";
+import { headerAPI, secureAPI } from "../api/api";
 
 let _actionCreators = {
-  setUserData: 'auth/SET-USER-DATA'
+  setUserData: 'auth/SET-USER-DATA',
+  getCaptchaUlrSuccess: "auth/GET-CAPTCHA-URL"
 
 }
-let initialState = {
+export let initialState = {
   userId: null,
   email: null,
   login: null,
   isFetching: false,
-  isAuth: false
+  isAuth: false,
+  captchaUrl: null
 }
 const authReducer = (state = initialState, action) => {
 
@@ -20,6 +22,11 @@ const authReducer = (state = initialState, action) => {
         ...state,
         ...action.data,
       };
+    case _actionCreators.getCaptcha:
+      return {
+        ...state,
+        ...action.data
+      }
     default:
       return state;
   };
@@ -30,6 +37,12 @@ export let setUserData = (userId, email, login, isAuth) => {
     data: { userId, email, login, isAuth }
   }
 }
+export let getCaptchaUrlSuccess = (captchaUrl) => {
+  return {
+    type: _actionCreators.getCaptchaUrl,
+    data: { captchaUrl }
+  }
+}
 export const getAuthThunkCreator = () => async (dispatch) => {
   let Response = await headerAPI.getAuth();
   if (Response.data.resultCode === 0) {
@@ -37,13 +50,19 @@ export const getAuthThunkCreator = () => async (dispatch) => {
     dispatch(setUserData(userId, email, login, true))
   }
 }
-export const loginThunkCreator = (email, password, rememberMe) => async (dispatch) => {
-  let Response = await headerAPI.getLogIn(email, password, rememberMe);
+export const loginThunkCreator = (email, password, rememberMe, captchaUrl) => async (dispatch) => {
+  let Response = await headerAPI.getLogIn(email, password, rememberMe, captchaUrl);
   if (Response.data.resultCode === 0) {
-    dispatch(getAuthThunkCreator())
+    console.log('auth')
+    dispatch(getAuthThunkCreator());
   } else {
-    let action = stopSubmit('login', { email: Response });
-    dispatch(action)
+    if (Response.data.resultCode === 10) {
+      dispatch(getCaptchaThunkCreator())
+    }
+    else {
+      let action = stopSubmit('login', { email: Response });
+      dispatch(action)
+    }
   }
 }
 export const logoutThunkCreator = () => async (dispatch) => {
@@ -51,6 +70,12 @@ export const logoutThunkCreator = () => async (dispatch) => {
   if (Response.data.resultCode === 0) {
     dispatch(setUserData(null, null, null, false))
   }
+}
+
+export const getCaptchaThunkCreator = () => async (dispatch) => {
+  let Response = await secureAPI.getCaptcha()
+  const captchaUrl = Response.data.url
+  dispatch(getCaptchaUrlSuccess(captchaUrl))
 }
 
 export default authReducer;

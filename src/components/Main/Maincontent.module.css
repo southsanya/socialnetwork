@@ -1,6 +1,6 @@
-.main__profilecard {
+/* .main__profilecard {
     width: 80%;
-    height: 400px;
+    height: auto;
     border-radius: 10px;
     background-color: rgba(38.0%, 85.5%, 98.4%, 0.9);
     margin: 0 auto;
@@ -8,6 +8,9 @@
     top: -350px;
     box-sizing: border-box;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+
   }
   .main__pc_block {
     display: flex;
@@ -15,10 +18,8 @@
     justify-content: center;
     align-items: center;
   }
-  .main__pc_block img {
-    height: 100px;
-    width: 100px;
-  }
+
+
   .main__pc_title {
     font-size: 40px;
     font-weight: 600 ;
@@ -91,4 +92,10 @@
     height: 100%;
     width: 100%;
     /* border-bottom: 10px solid #61dafb; */
+  /* } */ 
+  .main__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px;
   }
