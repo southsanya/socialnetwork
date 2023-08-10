@@ -1,7 +1,7 @@
 import React from "react";
 import { Input } from '../../common/formsControls/formsControls';
 import { reduxForm } from "redux-form";
-import { Form } from "redux-form";
+// import { Form } from "redux-form";
 import { CreateField } from '../../../utils/helpers/createfield';
 import classes  from './ProfileDataForm.module.css';
 

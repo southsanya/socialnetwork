@@ -1,0 +1,41 @@
+.news {
+    padding-top: 40px;
+    min-width: 320px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.newsWrapper {
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title {
+    font-size: 25px;
+    font-weight: 600;
+
+}
+.imageWrapper {
+
+}
+.image {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 600px;
+}
+@media (max-width: 450px) {
+    .image {
+        width: 240px;
+    }
+}
+.description {
+
+}
+.author {
+
+}

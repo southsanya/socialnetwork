@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import classes from './ProfileInfo.module.css'
 import Preloader from '../../common/preloader/preloader';
 // import ProfileStatus from './ProfileStatus'
-import { ProfileStatusWithHooks } from './ProfileStatusWithHooks';
-import ProfileDataForm from './ProfileDataForm';
+// import { ProfileStatusWithHooks } from './ProfileStatusWithHooks';
+// import ProfileDataForm from './ProfileDataForm';
 import ProfileDataFormRedux from './ProfileDataForm';
-import { mainAPI } from '../../../api/api';
+// import { mainAPI } from '../../../api/api';
 // import { SaveProfileInfoThunkCreator } from '../../../Redux/maincontentReducer';
 
 const userPhoto = "https://cdn4.iconfinder.com/data/icons/avatars-21/512/avatar-circle-human-male-3-512.png"
@@ -58,11 +58,11 @@ const ProfileInfo = React.memo(props => {
     );
 })
 
-const Contacts = (ContactsTitle, ContactsValue) => {
-    return <div>
-        {ContactsTitle} : {'-'}
-    </div>
-}
+// const Contacts = (ContactsTitle, ContactsValue) => {
+//     return <div>
+//         {ContactsTitle} : {'-'}
+//     </div>
+// }
 
 const ProfileData = (props) => {
     return (

@@ -10,18 +10,13 @@ let _actionCreators = {
 let initialState = {
     newMessagesText : 'hello',
     users : [
-        { id:'00001' , username:'Sasha' },
-        { id:'00002' , username:'Misha' },
-        { id:'00003' , username:'Gosha' },
-        { id:'00004' , username:'Rosha' },
-        { id:'00005' , username:'Liosha' },
+        { id:'00001' , username:'Test 1' },
+        { id:'00002' , username:'Test 2' },
       ],
     messages : [
-        { id:'00001' , content:'Hi' },
-        { id:'00002' , content:'Yo' },
-        { id:'00003' , content:'Go' },
-        { id:'00004' , content:'AO' },
-        { id:'00005' , content:'Il' },
+        { id:'00001' , content:'Добрий день! Дана сторінка знаходиться на стадії допрацювання. Більше інфо - @southsanya' },
+        { id:'00001' , content:'На даній сторінці розроблюється функціонал листування, функціонал додавання повідомлень розблокований.' },
+
       ]
 }
 

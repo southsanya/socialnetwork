@@ -44,16 +44,19 @@
 
   ;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
   .app-wrapper {
-    display: grid;
+    /* display: grid;
     grid-template-areas: "h h h"
     "s s s"
-    "m m m";
+    "m m m"; */
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
     /* grid-gap: 10px; */
-    max-width: 100vh;
     margin: 0 auto;
     height: 100vh;
     ;

@@ -1,14 +1,15 @@
 .header__container {
-  width: 100%;
+    min-width: 320px;
     grid-area:h;
     background-color: var(--main-bg-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0px 50px 0 50px;
+    box-sizing: border-box;
   }
  @media (max-width: 1400px) {
-  .header__container {
-  }
+
   
  }
   .header__image_logo {
