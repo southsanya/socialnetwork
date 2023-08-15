@@ -1,17 +1,15 @@
 .header__container {
     min-width: 320px;
     grid-area:h;
-    background-color: var(--main-bg-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0px 50px 0 50px;
     box-sizing: border-box;
-  }
- @media (max-width: 1400px) {
+    border: 1px solid lightslategray;
 
-  
- }
+  }
+
   .header__image_logo {
     width: 50px;
     height: 50px;
@@ -27,22 +25,6 @@
   .header__button_container button {
     width: 100px;
     height: 50px;
-    background-color: #EADBC8;
-    color: var(--main-bg-color);
-    border: none;
-    border-radius: 5px;
+    border: 1px solid lightslategray;
     font-weight: 600;
-  }
-  .header__button_container .button__last {
-    color: aliceblue;
-    background-color: #EADBC8;
-    border: 1px solid aliceblue;
-  }
-  .header__button {
-    border: 1px solid #EADBC8;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    background-color: #EADBC8;
-    border-radius: 5px;
   }

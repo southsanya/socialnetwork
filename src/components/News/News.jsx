@@ -7,7 +7,7 @@ import classes from './News.module.css'
 const News = () => {
     return (
         <div className={classes.news}>
-            {newsData.map(news => <div className={classes.newsWrapper}>
+            {newsData.map(news => <div className={classes.newsWrapper} key={news.title} >
                 <div className={classes.title}>
                     {news.title}
                 </div>

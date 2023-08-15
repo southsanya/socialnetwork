@@ -16,7 +16,7 @@ let Users = ({ isFetching, onPageChanged, currentPage, users, onFollowChanged, o
                 </div>
             </div>
             <div className={classes.userswrapper}>
-                {users.map(u => <User user={u} currentPage={currentPage} onFollowChanged={onFollowChanged} onFollow={onFollow} onUnfollow={onUnfollow} followingInProgress={followingInProgress} />)
+                {users.map(u => <User user={u} currentPage={currentPage} onFollowChanged={onFollowChanged} onFollow={onFollow} onUnfollow={onUnfollow} followingInProgress={followingInProgress} key={u.id} />)
                 }
             </div>
         </div>

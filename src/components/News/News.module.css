@@ -1,5 +1,6 @@
 .news {
-    padding-top: 40px;
+    padding: 20px 0 0 20px;
+    box-sizing: border-box;
     min-width: 320px;
     margin: 0 auto;
     text-align: center;
@@ -9,6 +10,7 @@
 
 }
 .newsWrapper {
+    border: 1px solid lightslategray;
     box-sizing: border-box;
     padding: 10px;
     display: flex;
@@ -16,16 +18,16 @@
     gap: 10px;
 }
 .title {
+    border: 1px solid lightslategray;
     font-size: 25px;
     font-weight: 600;
 
 }
 .imageWrapper {
+    border: 1px solid lightslategray;
 
 }
 .image {
-    border-radius: 10px;
-    overflow: hidden;
     width: 600px;
 }
 @media (max-width: 450px) {
@@ -34,8 +36,8 @@
     }
 }
 .description {
-
+    border: 1px solid lightslategray;
 }
 .author {
-
+    border: 1px solid lightslategray;
 }

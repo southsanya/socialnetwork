@@ -3,7 +3,7 @@ import Message from './Message/Message';
 import DialogItem from './DialogsInfo/DialogsInfo';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { Field , reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { Textarea } from '../common/formsControls/formsControls';
 import { required } from '../../utils/validators/validators';
 
@@ -11,14 +11,14 @@ import { required } from '../../utils/validators/validators';
 
 const AddMessageForm = (props) => {
     return <form onSubmit={props.handleSubmit} className={classes.formWrapper}>
-        <Field component={Textarea} name={'newMessageBody'}className={classes.main__pc_inp} validate={[required]}/>
-        <button  className={classes.main__pc_but}>Send</button>
+        <Field component={Textarea} name={'newMessageBody'} className={classes.main__pc_inp} validate={[required]} />
+        <button className={classes.main__pc_but}>Send</button>
     </form>
 }
 
 const AddMessageReduxForm = reduxForm({
     form: 'dialogAddMessageForm'
-}) (AddMessageForm)
+})(AddMessageForm)
 
 const Dialogs = (props) => {
 
@@ -33,14 +33,18 @@ const Dialogs = (props) => {
     if (props.isAuth === false) return <Navigate to={'/login'} />
 
     return (
-        <div className={classes.dialogscontainer}>
-            <div className={classes.dialogs}>
-                <div className={classes.dialogsitems}>
-                    {usersData}
-                </div>
-                <div className={classes.dialogsmessages}>
-                    {messagesData}
-                    <AddMessageReduxForm onSubmit={onSubmit} className={classes.formWrapper}/>
+        <div className={classes.dialogsWrapper}>
+            <div className={classes.dialogscontainer}>
+                <div className={classes.dialogs}>
+                    <div className={classes.dialogsitems}>
+                        {usersData}
+                    </div>
+                    <div className={classes.dialogsmessages}>
+                        <div className={classes.messageWrapper}>
+                        {messagesData}
+                        </div>
+                        <AddMessageReduxForm onSubmit={onSubmit} className={classes.formWrapper} />
+                    </div>
                 </div>
             </div>
         </div>

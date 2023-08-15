@@ -1,18 +1,24 @@
 .dialogscontainer {
     grid-area: m;
-    border-radius: 10px;
-    overflow: hidden;
     min-width: 320px;
     box-sizing: border-box;
+    border: 1px solid lightslategray;
+    padding: 10px;
+    height: 700px;
+
+}
+.dialogsWrapper {
+    box-sizing: border-box;
+    padding: 20px 0 0 20px;
 }
 
 .dialogs {
     display: flex;
     box-sizing: border-box;
-    gap: 5px;
-    padding: 5px;
+    gap: 10px;
 }
 .dialogsitems {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,54 +30,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F8F0E5 ;
     padding: 5px;
-}
+    border: 1px solid lightslategray;}
 .dialogsitems a.active {
-    background-color: #EADBC8;
 }
 .dialogsmessages {
-
+    padding: 10px;
+    border: 1px solid lightslategray;
+    height: 680px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: flex-end;
+    justify-content: space-between;
     gap: 5px;
 
 }
 .dialogsmessages:last-child {
     align-items: center;
+    
 }
 .message {
     box-sizing: border-box;
     padding: 5px;
-    border-radius: 5px;
-    background-color: #F8F0E5;
+    border: 1px solid lightslategray;
+
 }
 .messageWrapper {
-    width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .main__pc_inp {
-    width: 220px;
+    width: 100%;
     box-sizing: border-box;
     border: none;
-    background-color: #F8F0E5;
+    border: 1px solid lightslategray;
 
 }
 .main__pc_but {
-    width: 220px;
+    width: 100%;
     box-sizing: border-box;
     border: none;
-    background-color: #DAC0A3;
     box-sizing: border-box;
     padding: 5px;
     font-weight: 600;
-
-
+    border: 1px solid lightslategray;
 }
 .formWrapper {
     box-sizing: border-box;
     padding: 5px;
+    width: 100%;
     border-radius: 5px;
-    background-color: #EADBC8;
 }

@@ -1,17 +1,17 @@
 .aside__container {
+  margin-top: 20px;
     grid-area: s;
     display: flex;
     flex-direction: column;
-    background-color: var(--main-bg-color);
-    box-sizing: border-box;
-    min-width: 320px;
-  }
+    }
   .aside__button {
     display: flex;
     text-decoration: none;
-    font-weight: 600;
+    color: black;
+    min-width: 320px;
     height: 50px;
-    width: 100%;
+    border: 1px solid lightslategray;
+
 
     justify-content: center;
     align-items: center;
@@ -28,8 +28,6 @@
   }
   .active {
     display: flex;
-    color: var(--main-bg-color);
-    background-color: #EADBC8;
     text-decoration: none;
     font-weight: 600;
     height: 50px;
@@ -37,18 +35,33 @@
     justify-content: center;
     align-items: center;
   }
-  .aside__friend {
-    background-color: var(--main-bg-color);
-  }
-  .aside__ftext {
-  
-  }
-  .aside__friends {
 
-  }
   .aside__unit {
-    width: 30%;
-    height: 30%;
-    border-radius: 50%;
-    background-color: rgba(38.0%, 85.5%, 98.4%, 0.9) ;
+    border: 1px solid lightslategray;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 320px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  .friendContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .friendImg {
+    width: 70px;
+  }
+  .friendsWrapper {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    display: flex;
+  }
+  .title {
+    text-align: center;
   }

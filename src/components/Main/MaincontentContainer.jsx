@@ -52,15 +52,10 @@ class MaincontentContainer extends React.Component {
 
 }
 
-// let authRedirectComponent = withAuthRedirect(MaincontentContainer);
-
-
-
 let mapStateToProps = (state) => ({
   profile: state.maincontent.profile,
   status: state.maincontent.status,
 })
-// export default connect(mapStateToProps, { GetMainThunkCreator })(authRedirectComponent);
 
 export default compose(
   connect(mapStateToProps, { GetMainThunkCreator, GetStatusThunkCreator, UpdateStatusThunkCreator, SavePhotoThunkCreator, SaveProfileInfoThunkCreator }),
