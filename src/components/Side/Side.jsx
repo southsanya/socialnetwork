@@ -39,7 +39,7 @@ function Side(props) {
                 </div>
 
             </div>
-            <div className={classes.aside__unit}>
+            <div className={classes.aside__units}>
                 <div className={classes.title}>My Friends</div>
                 <div>
                     <div className={classes.friendsWrapper}>

@@ -1,4 +1,4 @@
-// import classes from './Settings.module.css'
+import classes from './Settings.module.css'
 
 const Settings = (props) => {
      let colorMode = false
@@ -11,13 +11,28 @@ const Settings = (props) => {
         }
     }
     return (
-        <div>
-            <div>
-                {
-                    props.colorMode
-                    ? <button onClick={() => {switchColorMode()}}>Try Day Mode!</button>
-                    : <button onClick={() => {switchColorMode()}}>Try Night Mode!</button>
-                }
+        <div className={classes.settingsWrapper}>
+            <div className={classes.settingsContainer}>
+                <div className={classes.title}>
+                    Settings
+                </div>
+                <div className={classes.list}>
+                    <div className={classes.countWrapper}>
+                        <div>Try night mode</div>
+                        <button className={classes.button}>Try</button>
+                    </div>
+                    <div className={classes.countWrapper}>
+                        <div>Mute notifications</div>
+                        <button className={classes.button}>Try</button>
+                    </div>
+                    <div className={classes.countWrapper}>
+                        <div>Get me as employee</div>
+                        <button className={classes.button}>Try</button>
+                    </div>
+                </div>
+                <div className={classes.titleWrapper}>
+                    Даний веб-додаток написаний самостійно по безкоштовних курсах на Ютубі. Подальший розвиток проекта триває, чекайте нових оновлень.
+                </div>
             </div>
         </div>
     )

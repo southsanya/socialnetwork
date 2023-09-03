@@ -11,7 +11,7 @@ import { required } from '../../utils/validators/validators';
 
 const AddMessageForm = (props) => {
     return <form onSubmit={props.handleSubmit} className={classes.formWrapper}>
-        <Field component={Textarea} name={'newMessageBody'} className={classes.main__pc_inp} validate={[required]} />
+        <Field component={Textarea} name={'newMessageBody'} placeholder='Your Message' className={classes.main__pc_inp} validate={[required]} />
         <button className={classes.main__pc_but}>Send</button>
     </form>
 }

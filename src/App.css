@@ -65,5 +65,9 @@
 body {
   padding-top: 20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
+  color: white;
+  background: url(./assets/images/469536.webp);
+}
+a {
+  color: white;
 }

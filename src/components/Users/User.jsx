@@ -37,8 +37,11 @@ let User = ({ user, currentPage, onFollowChanged, onFollow, onUnfollow, followin
             </div>
             <div className={classes.righthandler}>
                 <div className={classes.blockleft}>
-                    <div className={classes.fullname}>{user.name}</div>
-                    <div className={classes.status}>{user.status}</div>
+                    <div className={classes.fullname}>{user.name.toUpperCase()}</div>
+                    <div className={classes.status}>
+                        {user.status ||
+                        'Тут повинен бути статус, але цей користувач його не додав, тому додав його я'}
+                    </div>
                 </div>
                 <div className={classes.blockright}>
                     {/* <div className={classes.city}>Kyiv</div>

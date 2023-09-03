@@ -1,13 +1,14 @@
   .main__pc_block {
     display: flex;
     border: 1px solid lightslategray;
+    background-color: rgba(90,90,90,0.35);
+    border-radius: 10px;
     width: 100%;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     box-sizing: border-box;
     padding: 10px;
-    color: #102C57;
   }
   @media (max-width: 1000px) {
     .main__pc_block {
@@ -33,7 +34,6 @@
   .main__pc_content {
     width: 50%;
     height: 100%;
-    border: 1px solid lightslategray;
     box-sizing: border-box;
   }
   .main__pc_title{
@@ -56,7 +56,6 @@
     width: 50%;
     height: 100%;
     padding: 10px;
-    border: 1px solid lightslategray;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -69,5 +68,19 @@
     height: 40px; 
     background-color: white;
     border: 1px solid lightslategray;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: rgba(180,180,180,0.35);
     position: relative;
+  }
+  .customInput {
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+  .inputHolder {
+    position: relative;
+    top: -10px;
   }

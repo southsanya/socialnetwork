@@ -94,6 +94,9 @@
   }
   .main__pc_read {
     border: 1px solid lightslategray;
+    border-radius: 10px;
+    background-color: rgba(180,180,180,0.35);
+    color: white;
     width: 100%;
     height: auto;
     box-sizing: border-box;
@@ -120,6 +123,5 @@
     border-radius: 50%;
   }
   .main__pc_post_text {
-    color: black;
     font-size: 22px;
   }

@@ -39,10 +39,11 @@ const ProfileInfo = React.memo(props => {
                 </div>
                 <img src={props.profile.photos.large || userPhoto} className={classes.mainPhoto} alt=''></img>
                 <div>{props.isOwner
-                    ? 'false'
+                    ? ''
                     : <button className={classes.formBtn}>
                         <div className={classes.formWrapper}>
                         <input className={classes.customInput} type='file' onChange={onMainPhotoChange} />
+                        <div className={classes.inputHolder}>Edit</div>
                         </div>
                     </button>
                     }
@@ -75,7 +76,7 @@ const ProfileData = (props) => {
                     </div>
                 })}
             </div>
-            <div>{!props.isOwner ? <button className={classes.formBtn} onClick={() => (props.activateEditMode())}>edit</button> : 'No owner'}</div>
+            <div>{!props.isOwner ? <button className={classes.formBtn} onClick={() => (props.activateEditMode())}>Edit</button> : 'No owner'}</div>
         </div>
     )
 }

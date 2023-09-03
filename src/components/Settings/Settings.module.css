@@ -1,0 +1,65 @@
+.settingsWrapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 0 0 20px;
+}
+
+.settingsContainer {
+    height: 600px;
+    border: 1px solid lightslategray;
+    background-color: rgba(90, 90, 90, 0.35);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.title {
+    box-sizing: border-box;
+    font-size: 35px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.countWrapper {
+    box-sizing: border-box;
+    display: flex;
+    background-color: rgba(180, 180, 180, 0.35);
+    padding: 10px;
+    border: 1px solid lightslategray;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.titleWrapper {
+    border: 1px solid lightslategray;
+    background-color: rgba(180, 180, 180, 0.35);
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+.button {
+    box-sizing: border-box;
+    max-width: 300px;
+    outline: none;
+    border: none; 
+    height: 40px;
+    line-height: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    border: 1px solid lightslategray;
+    background-color: rgba(180,180,180,0.35);
+    color: white;
+    border-radius: 10px;
+}

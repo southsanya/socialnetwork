@@ -9,7 +9,7 @@ const Music = () => {
                 musicData.map( music => <div className={classes.countWrapper} key={music.songName}>
                     <div className={classes.musicSongName}>{music.songName}</div>
                     <div className={classes.musicAuthorName}>{music.authorName}</div>
-                    <img src={music.musicImage} alt='image' className={classes.musicImage} alt='music Photo'/>
+                    <img src={music.musicImage} alt='image' className={classes.musicImage}/>
                     <audio src={music.source} controls className={classes.audio}></audio>
 
                 </div> )
